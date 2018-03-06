@@ -1,0 +1,13 @@
+*.swp
+node_modules/
+.idea/
+platforms/
+plugins/
+*.lock
+
+www/
+!www/index.html
+!www/img/
+!css/index.css
+
+package-lock.json
