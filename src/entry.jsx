@@ -5,7 +5,7 @@ import React, {Component, version} from 'react';
 import {render} from 'react-dom'
 import {Page, Toolbar, Button} from 'react-onsenui'
 
-
+const t0 = performance.now();
 // import '../node_modules/onsenui/css/onsenui.css';
 // import '../node_modules/onsenui/css/onsen-css-components.css';
 
@@ -14,7 +14,8 @@ class Clock extends Component {
     super();
     // set initial time:
     this.state = {
-      time: Date.now()
+      time: Date.now(),
+      timer: ''
     };
   }
 
@@ -23,6 +24,9 @@ class Clock extends Component {
     this.timer = setInterval(() => {
       this.setState({time: Date.now()});
     }, 1000);
+    console.log('hi')
+    const t1 = performance.now();
+    this.setState({timer: (t1 - t0)})
   }
 
   componentWillUnmount() {
@@ -40,6 +44,7 @@ class Clock extends Component {
         <span>{time}</span>
         <br/>
         <Button style={{margin: '6px'}}>Test button</Button>
+        <p>Timer: {this.state.timer}</p>
       </div>
     );
   }
