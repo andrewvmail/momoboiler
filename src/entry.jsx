@@ -1,7 +1,8 @@
 console.log('entry')
 
 // normally these would be come in the form of ES2015 import statements
-import {render, Component, version} from 'inferno';
+import React, {Component, version} from 'react';
+import {render} from 'react-dom'
 import {Page, Toolbar, Button} from 'react-onsenui'
 
 
@@ -34,7 +35,7 @@ class Clock extends Component {
     return (
       <div>
         <h3>{'Momo Boilerplate'}</h3>
-        <span>{'Inferno version: ' + version}</span>
+        <span>{'React version: ' + version}</span>
         <br/>
         <span>{time}</span>
         <br/>

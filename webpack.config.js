@@ -4,17 +4,17 @@ const path = require('path');
 
 module.exports = {
   // webpack folder's entry js - excluded from jekll's build process.
-  entry: "./src/entry.js",
+  entry: "./src/entry.jsx",
   output: {
     path: path.resolve(__dirname, 'www/js/'),
     filename: "index.js"
   },
-  resolve: {
-    alias: {
-      'react': 'inferno-compat',
-      'react-dom': 'inferno-compat'
-    }
-  },
+  // resolve: {
+  //   alias: {
+  //     'react': 'inferno-compat',
+  //     'react-dom': 'inferno-compat'
+  //   }
+  // },
   module: {
     rules: [
       {
@@ -22,10 +22,10 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015'],
-          plugins: [["inferno", {
-            "imports": true
-          }]]
+          presets: ['react', 'es2015'],
+          // plugins: [["inferno", {
+          //   "imports": true
+          // }]]
         }
       },
       // {
