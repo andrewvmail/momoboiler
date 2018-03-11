@@ -11,8 +11,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'react': 'inferno-compat',
-      'react-dom': 'inferno-compat'
+      'react': 'nervjs',
+      'react-dom': 'nervjs',
+      'create-react-class': "nerv-create-class"
     }
   },
   module: {
@@ -22,34 +23,9 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015'],
-          plugins: [["inferno", {
-            "imports": true
-          }]]
+          presets: ['react', 'es2015']
         }
       },
-      // {
-      //   test: /\.css$/,
-      //   include: [
-      //     path.join(__dirname, 'node_modules', 'onsenui', 'css-components-src', 'src'),
-      //     path.join(__dirname, 'src')
-      //   ],
-      //   loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1&-raw!postcss')
-      // }, {
-      //   test: /\.css$/,
-      //   exclude: [
-      //     path.join(__dirname, 'node_modules', 'onsenui', 'css-components-src', 'src'),
-      //     path.join(__dirname, 'src')
-      //   ],
-      //   loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
-      // }
-      // {
-      //   test: /\.svg$/,
-      //   loader: 'file',
-      //   query: {
-      //     name: 'static/media/[name].[hash:8].[ext]'
-      //   }
-      // },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?\S*)?$/,
         loader: 'file?name=assets/[name].[hash].[ext]'
