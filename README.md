@@ -1,8 +1,15 @@
 # MomoBoiler
 
+
+
+#### Getting started
+
 ```
-git clone  ..
+git clone  https://github.com/andrewvmail/momoboiler 
+cd momoboiler
 npm install
-find . -name "*.msj" -type f -delete #https://github.com/webpack/webpack/issues/6459
-webpack --watch --mode development
+mkdir www
+cordova add platform browser
+cordova build browser
+cordova run browser
 ```  
