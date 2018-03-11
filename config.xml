@@ -1,12 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.momoboiler.momoboiler" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>momoboiler</name>
+    <name>MomoBoiler</name>
     <description>
-        Inferno + Cordova + Cerebral + Onsen UI
+        Cordova + Cerebral + Onsen UI + React/NervJS/Inferno-Compat
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
-    </author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -15,6 +12,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <hook src="scripts/webpack.sh" type="before_run" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
