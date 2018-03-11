@@ -18,3 +18,17 @@ cordova add platform browser
 cordova build browser
 cordova run browser -- --live-reload # open http://localhost:3000/www/ for livereload
 ```  
+
+#### iOS
+```
+cordova add platform ios
+cordova build ios
+open platforms/ios/momoboiler.xcworkspace # set provisioning profile, select your device and run
+```
+
+#### Android
+```
+cordova add platform android
+cordova build android
+cordova run android # make sure adb devices connected device or emulator
+```
