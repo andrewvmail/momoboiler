@@ -7,7 +7,13 @@ module.exports = {
     path: path.resolve(__dirname, 'www/js/'),
     filename: "index.js"
   },
-
+  // resolve: {
+  //   alias: {
+  //     'react': 'nervjs',
+  //     'react-dom': 'nervjs',
+  //     'create-react-class': "nerv-create-class"
+  //   }
+  // },
   module: {
     rules: [
       {

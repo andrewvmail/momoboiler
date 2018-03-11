@@ -1,5 +1,9 @@
 import React, {Component, version} from 'react'
 import {render} from 'react-dom'
+
+// import React, {render, Component, version} from 'nervjs'
+// import {Container, connect} from '@cerebral/nervjs'
+
 import {Page, Toolbar, Button} from 'react-onsenui'
 import {Container, connect} from '@cerebral/react'
 import {Controller, Module} from 'cerebral'
@@ -7,9 +11,7 @@ import {state, signal} from 'cerebral/tags'
 import Devtools from 'cerebral/devtools'
 import StorageModule from '@cerebral/storage'
 
-
 const storage = StorageModule({target: localStorage, json: true, sync: {'count': 'count'}})
-
 
 const app = Module({
   modules: {storage},
@@ -17,27 +19,36 @@ const app = Module({
     count: 0,
   },
   signals: {
-    click: [function increaseCount({state}) {
-      state.increment('count', 1)
-    }]
+    click: [
+      function increaseCount({state}) {
+        state.increment('count', 1)
+      }
+    ],
+    reset: [
+      function resetCount({state}) {
+        state.set('count', 0)
+      }
+    ]
   }
 })
 
 const controller = Controller(app, {
-  // devtools: Devtools({
-  //   host: 'localhost:8585',
-  //   https: false,
-  //   reconnect: true,
-  //   storeMutations: true,
-  //   bigComponentsWarning: 5,
-  //   warnStateProps: true,
-  // })
+  devtools: Devtools({
+    host: 'localhost:8585',
+    https: false,
+    reconnect: true,
+    storeMutations: true,
+    bigComponentsWarning: 5,
+    warnStateProps: true,
+  })
 })
 
 
 const Clock = connect({
     count: state`count`,
-    click: signal`click`
+    click: signal`click`,
+    reset: signal`reset`
+
   },
   class Clock extends Component {
     constructor() {
@@ -72,6 +83,8 @@ const Clock = connect({
           <span>Count: {this.props.count}</span>
           <br/>
           <Button style={{margin: '6px'}} onClick={() => this.props.click()}>Test button</Button>
+          <br/>
+          <Button style={{margin: '6px'}} onClick={() => this.props.reset()}>Reset button</Button>
         </div>
       )
     }
