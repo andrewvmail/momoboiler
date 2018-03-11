@@ -5,9 +5,7 @@ platforms/
 plugins/
 *.lock
 
-www/
-!www/index.html
-!www/img/
-!css/index.css
+www/css
+www/js
 
 package-lock.json
