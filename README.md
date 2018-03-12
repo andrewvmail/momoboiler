@@ -16,7 +16,11 @@ npm install
 mkdir www
 cordova platform add browser
 cordova build browser
-cordova run browser -- --live-reload # open http://localhost:3000/www/ for livereload
+cordova run browser -- --live-reload 
+# OR
+UI_LIB=nervjs  cordova run browser -- --live-reload 
+# open http://localhost:3000/www/ for livereload
+
 ```  
 
 #### iOS
