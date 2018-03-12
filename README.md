@@ -14,7 +14,7 @@ git clone  https://github.com/andrewvmail/momoboiler
 cd momoboiler
 npm install
 mkdir www
-cordova add platform browser
+cordova platform add browser
 cordova build browser
 cordova run browser -- --live-reload # open http://localhost:3000/www/ for livereload
 ```  
