@@ -12,7 +12,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <hook src="scripts/webpack.sh" type="after_run" />
+    <hook src="scripts/webpack.sh" type="before_run" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>

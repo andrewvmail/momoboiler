@@ -1,9 +1,5 @@
 import React, {Component, version} from 'react'
 import {render} from 'react-dom'
-
-// import React, {render, Component, version} from 'nervjs'
-// import {Container, connect} from '@cerebral/nervjs'
-
 import {Page, Toolbar, Button} from 'react-onsenui'
 import {Container, connect} from '@cerebral/react'
 import {Controller, Module} from 'cerebral'
@@ -43,12 +39,12 @@ const controller = Controller(app, {
   })
 })
 
+const t0 = performance.now()
 
 const Clock = connect({
     count: state`count`,
     click: signal`click`,
     reset: signal`reset`
-
   },
   class Clock extends Component {
     constructor() {
@@ -59,11 +55,20 @@ const Clock = connect({
       }
     }
 
+    componentWillMount(){
+      // nerv hack
+      if(this.vnode) {
+        this.props = this.vnode.props
+      }
+    }
+
     componentDidMount() {
       // update time every second
       this.timer = setInterval(() => {
         this.setState({time: Date.now()})
       }, 1000)
+      const t1 = performance.now()
+      this.setState({timer: (t1 - t0)})
     }
 
     componentWillUnmount() {
@@ -76,7 +81,7 @@ const Clock = connect({
       return (
         <div>
           <h3>{'Momo Boilerplate'}</h3>
-          <span>{'React version: ' + version}</span>
+          <span>{( !this.vnode ? 'React version: ' : 'Nervjs: ' ) + version}</span>
           <br/>
           <span>{time}</span>
           <br/>
@@ -85,6 +90,8 @@ const Clock = connect({
           <Button style={{margin: '6px'}} onClick={() => this.props.click()}>Test button</Button>
           <br/>
           <Button style={{margin: '6px'}} onClick={() => this.props.reset()}>Reset button</Button>
+          <br/>
+          <span>Time to mount: {this.state.timer}</span>
         </div>
       )
     }
@@ -92,3 +99,4 @@ const Clock = connect({
 )
 // render an instance of Clock into <body>:
 render(<Container controller={controller}><Clock/></Container>, document.getElementById('app'))
+

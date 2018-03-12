@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
@@ -7,13 +7,13 @@ module.exports = {
     path: path.resolve(__dirname, 'www/js/'),
     filename: "index.js"
   },
-  // resolve: {
-  //   alias: {
-  //     'react': 'nervjs',
-  //     'react-dom': 'nervjs',
-  //     'create-react-class': "nerv-create-class"
-  //   }
-  // },
+  resolve: {
+    alias: process.env.UI_LIB === 'nervjs' ? {
+      'react': 'nervjs',
+      'react-dom': 'nervjs',
+      'create-react-class': "nerv-create-class"
+    } : {}
+  },
   module: {
     rules: [
       {
@@ -32,6 +32,6 @@ module.exports = {
       {from: 'src/css', to: '../css/'},
       {from: 'src/img', to: '../img/'},
       {from: 'node_modules/onsenui/css', to: '../css/'},
-    ])
+    ]),
   ]
-};
+}
