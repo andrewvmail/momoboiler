@@ -1,4 +1,4 @@
-# MomoBoiler (Cordova + Cerebral + Onsen UI + React/NervJS (bindings todo))
+# MomoBoiler (Cordova + Cerebral + Onsen UI + React/NervJS)
 
 An experimental boilerplate for use to develop desktop and mobile apps using above tech. 
 
