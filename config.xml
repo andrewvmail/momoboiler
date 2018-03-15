@@ -5,6 +5,7 @@
         Cordova + Cerebral + Onsen UI + React/NervJS/Inferno-Compat
     </description>
     <content src="index.html" />
+    <preference name="DisallowOverscroll" value="true" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
