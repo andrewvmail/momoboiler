@@ -1,10 +1,11 @@
-import React, {Component, version} from 'react'
-import {render} from 'react-dom'
-import {Page, Toolbar, Button, Tab, Tabbar, BottomToolbar} from 'react-onsenui'
-import {Container, connect} from '@cerebral/react'
-import {state, signal} from 'cerebral/tags'
+import React, { Component, version } from 'react'
+import { render } from 'react-dom'
+import { Page, Toolbar, Button, Tab, Tabbar, BottomToolbar } from 'react-onsenui'
+import { Container, connect } from '@cerebral/react'
+import { state, signal } from 'cerebral/tags'
 import MyTabPage from "./pages/MyTabPage";
-import {controller} from './cerebral'
+import SettingsPage from "./pages/SettingsPage";
+import { controller } from './cerebral'
 
 
 window.t0 = performance.now()
@@ -36,7 +37,7 @@ const App = connect({
           tab: <Tab key={0} label='Home' icon='md-home'/>
         },
         {
-          content: <MyTabPage  key={1} content="Change the settings"/>,
+          content: <SettingsPage key={1} content="Change the settings"/>,
           tab: <Tab key={1} label='Settings' icon='md-settings'/>
         }
       ];

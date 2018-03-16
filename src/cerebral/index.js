@@ -1,16 +1,25 @@
-import React, {Component, version} from 'react'
-import {render} from 'react-dom'
-import {Page, Toolbar, Button, Tab, Tabbar, BottomToolbar} from 'react-onsenui'
-import {Container, connect} from '@cerebral/react'
-import {Controller, Module} from 'cerebral'
-import {state, signal} from 'cerebral/tags'
+import React, { Component, version } from 'react'
+import { render } from 'react-dom'
+import { Page, Toolbar, Button, Tab, Tabbar, BottomToolbar } from 'react-onsenui'
+import { Controller, Module } from 'cerebral'
 import Devtools from 'cerebral/devtools'
 import StorageModule from '@cerebral/storage'
+import settings from './modules/settings'
 
-const storage = StorageModule({target: localStorage, json: true, sync: {'count': 'count'}})
+const storage = StorageModule({
+  target: localStorage,
+  json: true,
+  sync: {
+    'count': 'count',
+    'settings.someState': 'settings.someState',
+  }
+})
 
 export const app = Module({
-  modules: {storage},
+  modules: {
+    storage,
+    settings,
+  },
   state: {
     count: 0,
   },
