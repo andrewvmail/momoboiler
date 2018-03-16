@@ -36,3 +36,6 @@ cordova add platform android
 cordova build android
 cordova run android # make sure adb devices connected device or emulator
 ```
+
+<img src="https://user-images.githubusercontent.com/2431354/37457542-8558336a-27ff-11e8-9ab4-3202a75df074.png" width="400">
+
