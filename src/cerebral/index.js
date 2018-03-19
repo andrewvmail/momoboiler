@@ -5,6 +5,7 @@ import { Controller, Module } from 'cerebral'
 import Devtools from 'cerebral/devtools'
 import StorageModule from '@cerebral/storage'
 import settings from './modules/settings'
+import navigation from './modules/navigation'
 
 const storage = StorageModule({
   target: localStorage,
@@ -19,9 +20,13 @@ export const app = Module({
   modules: {
     storage,
     settings,
+    navigation,
+
   },
   state: {
     count: 0,
+    currentPage: 'firstPage',
+    transition: 'pop'
   },
   signals: {
     click: [
