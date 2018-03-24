@@ -5,7 +5,7 @@ import { state, props } from 'cerebral/tags'
 export default Module({
   state: {
     action: 'push',
-    currentPage: 'firstPage',
+    currentPage: 'tabPage',
     navigationStack: [
       // { pageName: 'firstPage', props: {} }
     ]

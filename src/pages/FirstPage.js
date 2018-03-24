@@ -37,6 +37,8 @@ export default connect({
             <p><Switch checked={true}/></p>
             <Button modifier='large' style={{ margin: '6px' }} onClick={() => this.props.clickButtonOnPageOne()}>Reset
               button</Button>
+            // )
+            // )
           </section>
         </Page>
       )
