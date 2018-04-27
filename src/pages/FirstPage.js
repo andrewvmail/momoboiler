@@ -19,13 +19,14 @@ export default connect({
     }
 
     render() {
+
       // let { someState, toggleSomeState } = this.props
       return (
         <Page>
           <Toolbar>
             <div className='left'>
               <BackButton
-                onClick={() => this.props.clickPop()}
+                onClick={() => this.props.navigator.popPage()}
               >
                 Back
               </BackButton>
@@ -33,12 +34,10 @@ export default connect({
             <div className='center'>{this.props.key}</div>
           </Toolbar>
           <section style={{ textAlign: 'center' }}>
-            <p>First Page</p>
+            <p>First Page 2</p>
             <p><Switch checked={true}/></p>
             <Button modifier='large' style={{ margin: '6px' }} onClick={() => this.props.clickButtonOnPageOne()}>Reset
               button</Button>
-            // )
-            // )
           </section>
         </Page>
       )

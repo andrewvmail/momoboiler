@@ -1,6 +1,15 @@
 import React, { Component, version } from 'react'
 import { render } from 'react-dom'
-import { Page, Toolbar, Button, Tab, Tabbar, BottomToolbar, Switch, BackButton } from 'react-onsenui'
+import {
+  Page,
+  Toolbar,
+  Button,
+  Tab,
+  Tabbar,
+  BottomToolbar,
+  Switch,
+  BackButton
+} from 'react-onsenui'
 import { connect } from '@cerebral/react'
 import { state, signal } from 'cerebral/tags'
 import HomePage from './HomePage'
@@ -14,15 +23,15 @@ export default connect({
     clickPop: signal`navigation.clickPop`
   }, class TabPage extends Component {
 
-
     renderTabs() {
+      const { navigator } = this.props
       return [
         {
-          content: <HomePage key={0} content="Welcome home"/>,
+          content: <HomePage navigator={navigator} key={0} content="Welcome home"/>,
           tab: <Tab key={0} label='Home' icon='md-home'/>
         },
         {
-          content: <SettingsPage key={1} content="Change the settings"/>,
+          content: <SettingsPage navigator={navigator} key={1} content="Change the settings"/>,
           tab: <Tab key={1} label='Settings' icon='md-settings'/>
         }
       ]
@@ -36,17 +45,19 @@ export default connect({
     }
 
     renderToolbar() {
-      const titles = ['Home', 'Settings'];
+      const titles = [ 'Home', 'Settings' ];
       return (
         <Toolbar>
-          <div className='center'>{titles[this.state.index]}</div>
+          <div className='center'>{titles[ this.state.index ]}</div>
         </Toolbar>
       );
     }
 
     render() {
+      console.log('in tabls', this)
+      const { navigator } = this.props
       return (
-        <Page renderToolbar={this.renderToolbar.bind(this)}>
+        <Page navigator={navigator} renderToolbar={this.renderToolbar.bind(this)}>
           <Tabbar
             swipeable={true}
             position='auto'

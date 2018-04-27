@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Page } from 'react-onsenui'
+import { Page, Navigator } from 'react-onsenui'
 import { Container, connect } from '@cerebral/react'
 import { state } from 'cerebral/tags'
 import FirstPage from "./pages/FirstPage"
@@ -15,21 +15,22 @@ const pages = {
   tabPage: TabPage
 }
 
+const renderPage = (route, navigator) => (
+  <route.component key={route.key} navigator={navigator} />
+);
+
 const App = connect({
     currentPage: state`navigation.currentPage`,
     action: state`navigation.action`,
   },
   function App({ currentPage, action }) {
-    const Page = pages[currentPage]
-
     return (
-      <ReactCSSTransitionGroup
-        transitionName={action}
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={500}
-      >
-        <Page key={currentPage}/>
-      </ReactCSSTransitionGroup>
+      <Navigator
+        renderPage={renderPage}
+        animation='fade'
+        animationOptions={{duration: 0.2, timing: 'ease-in'}}
+        initialRoute={{component: TabPage, key: 'tabPage'}}
+      />
     )
   }
 )
