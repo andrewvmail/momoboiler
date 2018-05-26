@@ -7,34 +7,61 @@
     transition: opacity .5s ease-in;
 }
 
-
 .pop-enter {
     transform: translate(100%);
 }
+
 .pop-enter.pop-enter-active {
     transform: translate(0%);
     transition: transform 500ms ease-in-out;
 }
+
 .pop-leave {
     transform: translate(0%);
 }
+
 .pop-leave.pop-leave-active {
     transform: translate(-100%);
     transition: transform 500ms ease-in-out;
 }
 
-
 .push-enter {
     transform: translate(-100%);
 }
+
 .push-enter.push-enter-active {
     transform: translate(0%);
     transition: transform 500ms ease-in-out;
 }
+
 .push-leave {
     transform: translate(0%);
 }
+
 .push-leave.push-leave-active {
     transform: translate(100%);
     transition: transform 500ms ease-in-out;
+}
+
+html {
+    background: #ff9998;
+    text-align: center;
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    font-size: 2rem;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.toolbar {
+    position: relative !important;
+}
+
+.world-clock {
+    overflow: scroll;
 }

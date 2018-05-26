@@ -13,6 +13,8 @@ import {
 import { connect } from '@cerebral/react'
 import { state, signal } from 'cerebral/tags'
 import HomePage from './HomePage'
+import ClockFace from './ClockFace'
+import WorldClock from './WorldClock'
 import SettingsPage from './SettingsPage'
 
 export default connect({
@@ -27,8 +29,12 @@ export default connect({
       const { navigator } = this.props
       return [
         {
-          content: <HomePage navigator={navigator} key={0} content="Welcome home"/>,
-          tab: <Tab key={0} label='Home' icon='md-home'/>
+          content: <ClockFace navigator={navigator} key={0} content="Welcome home"/>,
+          tab: <Tab key={0} label='Time' icon='md-time'/>
+        },
+        {
+          content: <WorldClock navigator={navigator} key={0} content="Welcome home"/>,
+          tab: <Tab key={0} label='World Clock' icon='md-globe'/>
         },
         {
           content: <SettingsPage navigator={navigator} key={1} content="Change the settings"/>,
@@ -45,16 +51,17 @@ export default connect({
     }
 
     renderToolbar() {
-      const titles = [ 'Home', 'Settings' ];
-      return (
-        <Toolbar>
-          <div className='center'>{titles[ this.state.index ]}</div>
-        </Toolbar>
-      );
+      const titles = [ '', 'World Clock', 'Settings' ];
+      // if(titles[ this.state.index ]) {
+      //   return (
+      //     <Toolbar>
+      //       <div className='center'>{titles[ this.state.index ]}</div>
+      //     </Toolbar>
+      //   );
+      // }
     }
 
     render() {
-      console.log('in tabls', this)
       const { navigator } = this.props
       return (
         <Page navigator={navigator} renderToolbar={this.renderToolbar.bind(this)}>

@@ -20,8 +20,6 @@ export default connect({
     }
 
     render() {
-      console.log(this.props.navigator, '=== inside home')
-
       return (
         <Page>
           <h1>Home Page</h1>
